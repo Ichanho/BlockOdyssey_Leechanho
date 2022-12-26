@@ -1,0 +1,24 @@
+.container{
+  background-color: white;
+}
+
+.container>table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+.category_name{
+  font-size: 17px;
+  border-bottom: 1px solid black;
+}
+
+.controll{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons{
+  margin-left: 50px;
+}

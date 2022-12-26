@@ -1,0 +1,41 @@
+.header{
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  height: 100px;
+}
+
+.title{
+  height: 40px;
+  margin: 0;
+}
+
+.option{
+  display: flex;
+  border-top: 1px solid black;
+  padding-top: 5px;
+  
+  align-items: center;
+}
+
+.option>p{
+  height: 30px;
+  flex: 0.1;
+}
+
+.option>select{
+  height: 30px;
+  flex: 0.15;
+  margin-right: 30px;
+}
+
+.option>input{
+  height: 25px;
+  flex: 0.4;
+  margin-right: 30px;
+}
+
+.option>button{
+  height: 30px;
+  flex: 0.1;
+}
