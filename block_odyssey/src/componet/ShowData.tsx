@@ -40,7 +40,6 @@ function ShowData() {
 
   return <div className="show_data">
     <p>{`검색된 데이터 : ${pageInfo.totalItem}`}</p>
-    <button>{pageInfo.totalPage}</button>
     <div className="container">
       <table>
         <tbody>

@@ -27,6 +27,7 @@ const pageInfoReducer = createSlice({
     },
     changeDivPage: (state, action: PayloadAction<number>)=>{
       state.dividPage = action.payload;
+      state.currentPage = 1;
       state.totalPage = Math.ceil(state.totalItem / state.dividPage);
     }
   }
