@@ -1,0 +1,8 @@
+.pagination{
+  margin-left: 50px;
+  display: flex;
+}
+
+.pagination>div{
+  display: flex;
+}
