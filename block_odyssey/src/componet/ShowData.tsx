@@ -40,17 +40,17 @@ function ShowData() {
       const productTitle = product.title.toLowerCase();
       const productBrand = product.brand.toLowerCase();
       const productDesc = product.description.toLowerCase();
-      if (fillterInfo.conditions === "all") {
+      if (fillterInfo.condition === "all") {
         result = (
           productTitle.includes(fillterText) ||
           productBrand.includes(fillterText) ||
           productDesc.includes(fillterText)
         )
-      } else if (fillterInfo.conditions === "title") {
+      } else if (fillterInfo.condition === "title") {
         result = (productTitle.includes(fillterText))
-      } else if (fillterInfo.conditions === "brand") {
+      } else if (fillterInfo.condition === "brand") {
         result = (productBrand.includes(fillterText))
-      } else if (fillterInfo.conditions === "desc") {
+      } else if (fillterInfo.condition === "desc") {
         result = (productDesc.includes(fillterText))
       } else {
 

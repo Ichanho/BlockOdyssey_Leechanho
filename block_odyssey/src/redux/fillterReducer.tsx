@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 export interface Ifilter {
-  conditions: "all" | "title" | "brand" | "desc",
+  condition: "all" | "title" | "brand" | "desc",
   searchText: string | null
 }
 
 const initialState: Ifilter = {
-  conditions: "all",
+  condition: "all",
   searchText: null
 }
 
@@ -15,7 +15,7 @@ const fillterReducer = createSlice({
   initialState,
   reducers: {
     changeCon: (state, action) => {
-      state.conditions = action.payload.condition;
+      state.condition = action.payload.condition;
       state.searchText = action.payload.searchText;
     }
   }
