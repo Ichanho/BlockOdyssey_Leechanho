@@ -1,4 +1,4 @@
-import { createSlice, configureStore } from "@reduxjs/toolkit"
+import { configureStore } from "@reduxjs/toolkit"
 import { useDispatch } from "react-redux";
 import pageInfoReducer from "./pageInfoReducer";
 import fillterReducer from "./fillterReducer";

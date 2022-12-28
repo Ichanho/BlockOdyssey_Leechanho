@@ -1,41 +1,41 @@
-.header{
+.header {
   background-color: white;
   border-radius: 5px;
   padding: 10px;
   height: 100px;
 }
 
-.title{
+.title {
   height: 40px;
   margin: 0;
 }
 
-.option{
+.option {
   display: flex;
   border-top: 1px solid black;
   padding-top: 5px;
-  
+
   align-items: center;
 }
 
-.option>p{
+.option>p {
   height: 30px;
   flex: 0.1;
 }
 
-.option>select{
+.option>select {
   height: 30px;
   flex: 0.15;
   margin-right: 30px;
 }
 
-.option>input{
+.option>input {
   height: 25px;
   flex: 0.4;
   margin-right: 30px;
 }
 
-.option>button{
+.option>button {
   height: 30px;
   flex: 0.1;
 }

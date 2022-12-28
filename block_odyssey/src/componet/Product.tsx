@@ -16,7 +16,7 @@ function Product({ product: p, productNum: num }: Iprops) {
     <td>{num + 1}</td>
     <td>{product.title}</td>
     <td>{product.brand}</td>
-    <td>{product.description.length > 40 ? `${product.description.slice(0,40)}...` : product.description}</td>
+    <td>{product.description.length > 40 ? `${product.description.slice(0, 40)}...` : product.description}</td>
     <td>{product.price}</td>
     <td>{product.rating}</td>
     <td>{product.stock}</td>

@@ -1,8 +1,5 @@
-import { current } from "@reduxjs/toolkit";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import pageInfoReducer, { IpageInfo } from "../redux/pageInfoReducer";
-import store from "../redux/store";
 import { RootState, useAppDispatch } from "../redux/store";
 import "./Pagination.css"
 

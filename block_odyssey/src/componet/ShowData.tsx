@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect} from "react";
 import useFetch from "../Hooks/useFetch";
-import Product from "./Product";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../redux/store";
 import pageInfoReducer, { IpageInfo } from "../redux/pageInfoReducer";
-import Pagination from "./Pagination";
-import "./ShowData.css"
 import { Ifilter } from "../redux/fillterReducer";
+import Pagination from "./Pagination";
+import Product from "./Product";
+import "./ShowData.css"
 
 export interface Iproduct {
   id: number;

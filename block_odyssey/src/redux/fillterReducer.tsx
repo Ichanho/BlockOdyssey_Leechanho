@@ -4,7 +4,6 @@ export interface Ifilter {
   condition: "all" | "title" | "brand" | "desc",
   searchText: string | null
 }
-
 const initialState: Ifilter = {
   condition: "all",
   searchText: null

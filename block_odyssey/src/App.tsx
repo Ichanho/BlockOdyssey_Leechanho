@@ -1,4 +1,3 @@
-import React from 'react';
 import Search from './componet/Search';
 import ShowData from './componet/ShowData';
 import store from './redux/store';

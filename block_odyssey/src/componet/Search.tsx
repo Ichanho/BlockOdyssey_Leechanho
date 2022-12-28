@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../redux/store";
 import fillterReducer, { Ifilter } from "../redux/fillterReducer";
-import "./Search.css"
 import pageInfoReducer from "../redux/pageInfoReducer";
+import "./Search.css"
 
 
 function Search() {

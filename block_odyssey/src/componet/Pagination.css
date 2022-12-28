@@ -1,17 +1,17 @@
-.pagination{
+.pagination {
   margin-left: 50px;
   display: flex;
 }
 
-.pagination>div{
+.pagination>div {
   display: flex;
 }
 
-.pagination>button{
+.pagination>button {
   /* background-color: #fcfcfc; */
   margin-left: 3px;
 }
 
-.currnet_page{
+.currnet_page {
   background-color: #aaaaaa;
 }

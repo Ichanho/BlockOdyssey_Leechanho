@@ -13,4 +13,8 @@
 - React
 - Creat-React-App
 - TypeScript
+- Redux
+- React-Redux
+- Redux-toolkit
+- SessionStorage 
 - API( https://dummyjson.com/products?limit=100) 
