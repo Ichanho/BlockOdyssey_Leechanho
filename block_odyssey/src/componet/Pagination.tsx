@@ -36,7 +36,6 @@ function Pagination() {
     return <div className="pagination">
       <button onClick={changePage} value="pre">{"<"}</button>
       {array.map((each) => {
-        console.log(each)
         return <button onClick={changePage} value={each} key={`pageNum${each}`}>{each}</button>
       })}
       <button onClick={changePage} value="next">{">"}</button>

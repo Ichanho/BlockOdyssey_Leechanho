@@ -1,12 +1,12 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit"
 import { useDispatch } from "react-redux";
 import pageInfoReducer from "./pageInfoReducer";
-import fillterItem from "./fillterItem";
+import fillterReducer from "./fillterReducer";
 
 const store = configureStore({
   reducer: {
     pageInfoReducer: pageInfoReducer.reducer,
-    fillterItem: fillterItem.reducer
+    fillterReducer: fillterReducer.reducer
   }
 })
 

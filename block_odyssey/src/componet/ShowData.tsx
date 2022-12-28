@@ -6,6 +6,7 @@ import { RootState, useAppDispatch } from "../redux/store";
 import pageInfoReducer, { IpageInfo } from "../redux/pageInfoReducer";
 import Pagination from "./Pagination";
 import "./ShowData.css"
+import { Ifilter } from "../redux/fillterReducer";
 
 export interface Iproduct {
   id: number;
@@ -22,21 +23,50 @@ export interface Iproduct {
 }
 
 function ShowData() {
-  const products: Iproduct[] = useFetch(`https://dummyjson.com/products?limit=60`);
+  const products: Iproduct[] = useFetch(`https://dummyjson.com/products?limit=100`);
 
   const dispatch = useAppDispatch();
   const pageInfo: IpageInfo = useSelector((state: RootState) => (
     state.pageInfoReducer
-  ))
+  ));
+  const fillterInfo: Ifilter = useSelector((state: RootState) => (state.fillterReducer));
+
+  const newProducts = products.filter((product) => {
+    if (fillterInfo.searchText == "" || fillterInfo.searchText === null) {
+      return true
+    } else {
+      let result: boolean = false;
+      const fillterText = fillterInfo.searchText.toLowerCase();
+      const productTitle = product.title.toLowerCase();
+      const productBrand = product.brand.toLowerCase();
+      const productDesc = product.description.toLowerCase();
+      if (fillterInfo.conditions === "all") {
+        result = (
+          productTitle.includes(fillterText) ||
+          productBrand.includes(fillterText) ||
+          productDesc.includes(fillterText)
+        )
+      } else if (fillterInfo.conditions === "title") {
+        result = (productTitle.includes(fillterText))
+      } else if (fillterInfo.conditions === "brand") {
+        result = (productBrand.includes(fillterText))
+      } else if (fillterInfo.conditions === "desc") {
+        result = (productDesc.includes(fillterText))
+      } else {
+
+      }
+      return result
+    }
+  });
 
   function handlePageNum(e: React.ChangeEvent<HTMLSelectElement>) {
     dispatch(pageInfoReducer.actions.changeDivPage(Number(e.target.value)));
   }
 
   useEffect(() => {
-    console.log(`useEffect ${pageInfo.dividPage} ${products.length}`);
-    dispatch(pageInfoReducer.actions.changeTotalItem(products.length));
-  }, [products])
+    dispatch(pageInfoReducer.actions.changeTotalItem(newProducts.length));
+  }, [newProducts])
+
 
   return <div className="show_data">
     <p>{`검색된 데이터 : ${pageInfo.totalItem}`}</p>
@@ -53,7 +83,7 @@ function ShowData() {
             <td>재고</td>
           </tr>
 
-          {products.map((product, index) => {
+          {newProducts.map((product, index) => {
             const _index = index + 1;
             const min = (pageInfo.currentPage - 1) * pageInfo.dividPage;
             const max = pageInfo.currentPage * pageInfo.dividPage;
