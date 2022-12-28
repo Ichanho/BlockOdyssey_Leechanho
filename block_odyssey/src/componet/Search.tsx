@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../redux/store";
 import fillterReducer, { Ifilter } from "../redux/fillterReducer";
 import "./Search.css"
+import pageInfoReducer from "../redux/pageInfoReducer";
 
 
 function Search() {
@@ -21,6 +22,7 @@ function Search() {
     const searchText = textRef.current?.value;
     
     dispatch(fillterReducer.actions.changeCon({condition, searchText}));
+    dispatch(pageInfoReducer.actions.changePage(1));
   }
 
   return <div className="search">

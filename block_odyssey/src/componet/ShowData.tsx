@@ -87,7 +87,7 @@ function ShowData() {
             const _index = index + 1;
             const min = (pageInfo.currentPage - 1) * pageInfo.dividPage;
             const max = pageInfo.currentPage * pageInfo.dividPage;
-            if (min < _index && _index < max)
+            if (min < _index && _index <= max)
               return <Product product={product} productNum={index} key={product.id} />;
           })}
         </tbody>

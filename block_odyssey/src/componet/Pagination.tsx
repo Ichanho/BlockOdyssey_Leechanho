@@ -24,7 +24,6 @@ function Pagination() {
     } else {
       dispatch(pageInfoReducer.actions.changePage(Number(e_value)))
     }
-
   }
 
   if (totalPage <= 5) {
@@ -36,49 +35,43 @@ function Pagination() {
     return <div className="pagination">
       <button onClick={changePage} value="pre">{"<"}</button>
       {array.map((each) => {
-        return <button onClick={changePage} value={each} key={`pageNum${each}`}>{each}</button>
+        return <button onClick={changePage} className={(currentPage === each) ? "currnet_page" : ""} value={each} key={`pageNum${each}`}>{each}</button>
       })}
-      <button onClick={changePage} value="next">{">"}</button>
-    </div>
-  } else if (currentPage < 5) {
-    return <div className="pagination">
-      <button onClick={changePage} value="pre">{"<"}</button>
-      <button onClick={changePage} value={1}>{1}</button>
-      <button onClick={changePage} value={2}>{2}</button>
-      <button onClick={changePage} value={3}>{3}</button>
-      <button onClick={changePage} value={4}>{4}</button>
-      <button onClick={changePage} value={5}>{5}</button>
-      <span>・・・</span>
-      <button onClick={changePage} value={totalPage}>{totalPage}</button>
-      <button onClick={changePage} value="next">{">"}</button>
-    </div>
-  } else if (currentPage >= 5 && currentPage < (totalPage - 2)) {
-    return <div className="pagination">
-      <button onClick={changePage} value="pre">{"<"}</button>
-      <button onClick={changePage} value={1}>{1}</button>
-      <span>・・・</span>
-      <button onClick={changePage} value={currentPage - 1}>{currentPage - 1}</button>
-      <button onClick={changePage} value={currentPage}>{currentPage}</button>
-      <button onClick={changePage} value={currentPage + 1}>{currentPage + 1}</button>
-      <span>・・・</span>
-      <button onClick={changePage} value={totalPage}>{totalPage}</button>
-      <button onClick={changePage} value="next">{">"}</button>
-    </div>
-  } else if (currentPage >= (totalPage - 2)) {
-    return <div className="pagination">
-      <button onClick={changePage} value="pre">{"<"}</button>
-      <button onClick={changePage} value={1}>{1}</button>
-      <span>・・・</span>
-      <button onClick={changePage} value={totalPage - 4}>{totalPage - 4}</button>
-      <button onClick={changePage} value={totalPage - 3}>{totalPage - 3}</button>
-      <button onClick={changePage} value={totalPage - 2}>{totalPage - 2}</button>
-      <button onClick={changePage} value={totalPage - 1}>{totalPage - 1}</button>
-      <button onClick={changePage} value={totalPage}>{totalPage}</button>
       <button onClick={changePage} value="next">{">"}</button>
     </div>
   } else {
     return <div className="pagination">
-      <span>error</span>
+      <button onClick={changePage} value="pre">{"<"}</button>
+
+      {currentPage != 1 && (<button onClick={changePage} value={1}>{1}</button>)}
+
+      {currentPage >= 5 && (<span>・・・</span>)}
+
+      {currentPage == totalPage && (<button onClick={changePage} value={currentPage - 4}>{currentPage - 4}</button>)}
+
+      {currentPage > 4 && currentPage >= totalPage - 1
+        && (<button onClick={changePage} value={currentPage - 3}>{currentPage - 3}</button>)}
+
+      {currentPage > 3 && (currentPage >= totalPage - 2 || currentPage == 4) && (<button onClick={changePage} value={currentPage - 2}>{currentPage - 2}</button>)}
+
+      {currentPage > 2 && (<button onClick={changePage} value={currentPage - 1}>{currentPage - 1}</button>)}
+
+      <button onClick={changePage} className="currnet_page" value={currentPage}>{currentPage}</button>
+
+      {currentPage < totalPage - 1 && (<button onClick={changePage} value={currentPage + 1}>{currentPage + 1}</button>)}
+
+      {(currentPage <= 3 || currentPage === totalPage - 3) && currentPage < totalPage - 2 && (<button onClick={changePage} value={currentPage + 2}>{currentPage + 2}</button>)}
+
+      {currentPage <= 2 && (<button onClick={changePage} value={currentPage + 3}>{currentPage + 3}</button>)}
+
+      {currentPage == 1 && (<button onClick={changePage} value={currentPage + 4}>{currentPage + 4}</button>)}
+
+
+      {currentPage < totalPage - 3 && (<span>・・・</span>)}
+
+      {currentPage != totalPage && (<button onClick={changePage} value={totalPage}>{totalPage}</button>)}
+
+      <button onClick={changePage} value="next">{">"}</button>
     </div>
   }
 

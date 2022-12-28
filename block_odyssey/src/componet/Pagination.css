@@ -6,3 +6,12 @@
 .pagination>div{
   display: flex;
 }
+
+.pagination>button{
+  /* background-color: #fcfcfc; */
+  margin-left: 3px;
+}
+
+.currnet_page{
+  background-color: #aaaaaa;
+}
